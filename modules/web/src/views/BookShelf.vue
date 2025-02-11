@@ -197,6 +197,7 @@ const setLegadoRetmoteUrl = () => {
           const url = new URL(instance.inputValue).toString()
           API.getReadConfig(url)
             .then(function (config) {
+              window.MessageBroker?.postMessage({ command: 'setRemoteUrl', value: url })
               connectionStore.setNewConnect(false)
               applyReadConfig(config)
               instance.confirmButtonLoading = false
