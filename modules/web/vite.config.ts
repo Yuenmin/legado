@@ -57,6 +57,9 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`,
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
               return "vendor";

@@ -1,0 +1,85 @@
+{
+  "name": "legado-ext",
+  "displayName": "legado-ext",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "legadoExt.configureRemoteUrl",
+        "title": "%legadoExt.commands.configureRemoteUrl.title%",
+        "category": "Legado"
+      },
+      {
+        "command": "legadoExt.showLegadoWeb",
+        "title": "%legadoExt.commands.showLegadoWeb.title%",
+        "category": "Legado"
+      },
+      {
+        "command": "legadoExt.showContentInWebview",
+        "title": "%legadoExt.commands.showContentInWebview.title%",
+        "category": "Legado"
+      },
+      {
+        "command": "legadoExt.showContentInEditor",
+        "title": "%legadoExt.commands.showContentInEditor.title%",
+        "category": "Legado"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "legadoExt.showContentInWebview",
+          "group": "navigation",
+          "when": "activeWebviewPanelId == legadoContentWebview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Legado",
+      "properties": {
+        "legadoExt.remoteUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use.",
+          "pattern": "^$|^(http|https)://.+$"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "vscode:prepublish": "npm run package",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "importweb": "cd ../web && npm run build-only && cd ../extension && tsup && rm -rf src/legado-web && cp -r ../web/dist/ src/legado-web"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "ts-loader": "^9.5.2",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@legado-web/lib": "file:../web/dist/lib",
+    "@vscode/l10n": "^0.0.18",
+    "axios": "^1.7.9"
+  }
+}

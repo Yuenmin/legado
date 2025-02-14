@@ -1,0 +1,12 @@
+{
+  "legadoExt.commands.configureRemoteUrl.title": "Configure Remote Url",
+  "legadoExt.commands.refreshData.title": "Refresh Data",
+  "legadoExt.commands.showLegadoWeb.title": "Show Legado Web",
+  "legadoExt.commands.showContentInWebview.title": "Show Content In Webview",
+  "legadoExt.commands.showContentInEditor.title": "Show Content In Editor",
+  "legadoExt.viewsContainers.activitybar.title": "Legado",
+  "legadoExt.views.bookshelf.title": "Bookshelf",
+  "legadoExt.views.legadoWebview.title": "Webview (Keep this view visible)",
+  "legadoExt.views.welcome.title": "Welcome",
+  "legadoExt.viewsWelcome.bookshelf.contents": "You have not yet configured a remote url.\n[Configure](command:legadoExt.configureRemoteUrl)"
+}
